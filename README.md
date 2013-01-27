@@ -1,4 +1,4 @@
 cuterpg
 =======
 
-Bootstrapping an RPG framework with Pyglet and PlanetCute graphics
+Bootstrapping an RPG framework with Pyglet and PlanetCute graphics. Comments welcome.
