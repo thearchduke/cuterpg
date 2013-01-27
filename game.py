@@ -1,15 +1,15 @@
 import pyglet
-import draw_tiles
+from cuterpg import draw_tiles, collision
 
-from collision import will_be_inside, is_inside, can_touch
+from cuterpg.collision import will_be_inside, is_inside, can_touch
 
 main_batch = pyglet.graphics.Batch()
 
 ###Load walking animation sheet for hero
-walking = pyglet.image.load('tiles/claudius_crop.png')
+walking = pyglet.image.load('cuterpg/tiles/claudius_crop.png')
 walking_seq = pyglet.image.ImageGrid(walking, 4, 5)
 
-map_file = open('map1.txt').read().split()
+map_file = open('cuterpg/map1.txt').read().split()
 map_tiles, walls = draw_tiles.render_map(map_file)
 
 

@@ -2,25 +2,25 @@ import pyglet
 
 
 ###Landscape tiles
-dirt = pyglet.image.load('tiles/Dirt Block.png')
-brown = pyglet.image.load('tiles/Brown Block.png')
-grass = pyglet.image.load('tiles/Grass Block.png')
-stone = pyglet.image.load('tiles/Stone Block.png')
-water = pyglet.image.load('tiles/Water Block.png')
-talltree = pyglet.image.load('tiles/Tree Tall.png')
-shorttree = pyglet.image.load('tiles/Tree Short.png')
+dirt = pyglet.image.load('cuterpg/tiles/Dirt Block.png')
+brown = pyglet.image.load('cuterpg/tiles/Brown Block.png')
+grass = pyglet.image.load('cuterpg/tiles/Grass Block.png')
+stone = pyglet.image.load('cuterpg/tiles/Stone Block.png')
+water = pyglet.image.load('cuterpg/tiles/Water Block.png')
+talltree = pyglet.image.load('cuterpg/tiles/Tree Tall.png')
+shorttree = pyglet.image.load('cuterpg/tiles/Tree Short.png')
 
 
 ###Building tiles
-roofsouth = pyglet.image.load('tiles/Roof South.png')
-roofsouthwest = pyglet.image.load('tiles/Roof South West.png')
-doorclosed = pyglet.image.load('tiles/Door Tall Closed.png')
-dooropen = pyglet.image.load('tiles/Door Tall Open.png')
-stonetall = pyglet.image.load('tiles/Stone Block Tall.png')
+roofsouth = pyglet.image.load('cuterpg/tiles/Roof South.png')
+roofsouthwest = pyglet.image.load('cuterpg/tiles/Roof South West.png')
+doorclosed = pyglet.image.load('cuterpg/tiles/Door Tall Closed.png')
+dooropen = pyglet.image.load('cuterpg/tiles/Door Tall Open.png')
+stonetall = pyglet.image.load('cuterpg/tiles/Stone Block Tall.png')
 
 
 ###Object tiles
-chestclosed = pyglet.image.load('tiles/Chest Closed.png')
+chestclosed = pyglet.image.load('cuterpg/tiles/Chest Closed.png')
 
 bg_batch = pyglet.graphics.Batch()
 
