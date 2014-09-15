@@ -51,6 +51,7 @@ def render_map(map):
 	walls = []
 	objects = []
 	map_sprites = []
+	chests = []
 	tile_y = 509
 	layer = 1
 	for line in map:
@@ -63,7 +64,7 @@ def render_map(map):
 		layer += 1
 		if tile_y < 5:
 			tile_y = 509
-	return map_sprites, walls
+	return map_sprites, walls, objects
 
 def which_tile(char, tile_x, tile_y, walls, layer, objects):
 	if char == 'B':
@@ -108,7 +109,7 @@ def which_tile(char, tile_x, tile_y, walls, layer, objects):
 		new_tile = which_line(new_tile, 509, 84, layer)
 		return new_tile
 	elif char == 'O':
-		objects.append({'x': tile_x, 'y': tile_y + 20, 'h': 84, 'w': 84})
+		objects.append({'x': tile_x, 'y': tile_y + 20, 'h': 84, 'w': 84, 'type': 'doorclosed'})
 		walls.append({'x': tile_x, 'y': tile_y + 20, 'h': 84, 'w': 84})
 		new_tile = pyglet.sprite.Sprite(doorclosed, batch = bg_batch, x=tile_x, y=tile_y)
 		new_tile = which_line(new_tile, 509, 84, layer)
@@ -119,7 +120,7 @@ def which_tile(char, tile_x, tile_y, walls, layer, objects):
 		new_tile = which_line(new_tile, 509, 84, layer)
 		return new_tile
 	elif char == 'C':
-		objects.append({'x': tile_x, 'y': tile_y + 41, 'h': 21, 'w': 84})
+		objects.append({'x': tile_x, 'y': tile_y + 41, 'h': 21, 'w': 84, 'type': 'chestclosed'})
 		walls.append({'x': tile_x, 'y': tile_y + 41, 'h': 21, 'w': 84})
 		new_tile = pyglet.sprite.Sprite(chestclosed, batch = bg_batch, x=tile_x + 14, y=tile_y - 42)
 		new_tile = which_line(new_tile, 509, 84, layer)

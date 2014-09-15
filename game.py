@@ -10,7 +10,7 @@ walking = pyglet.image.load('cuterpg/tiles/claudius_crop.png')
 walking_seq = pyglet.image.ImageGrid(walking, 4, 5)
 
 map_file = open('cuterpg/map1.txt').read().split()
-map_tiles, walls = draw_tiles.render_map(map_file)
+map_tiles, walls, objects = draw_tiles.render_map(map_file)
 
 
 class Hero(pyglet.sprite.Sprite):
@@ -26,8 +26,11 @@ class Hero(pyglet.sprite.Sprite):
 		self.scale = 1.3
 		self.x = 125
 		self.y = 155
+		self.touched = None
 
 	def walk(self, direction):
+		self.touched = can_touch(self, direction, objects)
+		print self.touched
 		if direction == 'RIGHT':
 			if will_be_inside(self, direction, walls):
 				self.walk_speed = 0
@@ -69,7 +72,8 @@ class Hero(pyglet.sprite.Sprite):
 			if self.down_iter > 20 - self.walk_iter:
 				self.down_iter = 15
 
-
+class Chest(object):
+	pass
 
 
 class Game(pyglet.window.Window):
@@ -80,7 +84,7 @@ class Game(pyglet.window.Window):
 		self.player = Hero()
 		self.keys_held = []
 		pyglet.clock.schedule_interval(self.movement, 0.015)
-
+		pyglet.clock.schedule_interval(self.action, 0.015)
 
 	def on_draw(self):
 		self.clear()
@@ -109,6 +113,12 @@ class Game(pyglet.window.Window):
 			self.player.walk_speed = 4.0
 		else:
 			self.player.walk_speed = 2.5
+
+	def action(self, dt):
+		if pyglet.window.key.SPACE in self.keys_held:
+			if self.player.touched:
+				pass
+				# "Hit spacebar to touch" code goes here
 
 
 
